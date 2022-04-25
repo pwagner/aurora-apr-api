@@ -1205,9 +1205,9 @@ function calculateAPRs(
     usdPerWeek,
     rewardTokenTicker,
     poolRewardsPerWeek,
-    dailyAPR,
-    weeklyAPR,
-    yearlyAPR
+    dailyAPR: Math.floor(dailyAPR * 1000000) / 100000000,
+    weeklyAPR: Math.floor(weeklyAPR * 1000000) / 100000000,
+    yearlyAPR: Math.floor(yearlyAPR * 1000000) / 100000000
   }
 }
 
