@@ -1,0 +1,31 @@
+{
+  "name": "multiform-endpoints-express",
+  "version": "0.0.1",
+  "description": "API endpoints for pool APRs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha -R spec test/api.spec.js --exit",
+    "start": "node index.js",
+    "dev": "npx nodemon index.js",
+    "docker:build": "docker build -t aurora-apr-api .",
+    "docker:run": "docker run -d -p 8080:8080 --env PORT=8080 aurora-apr-api",
+    "docker:build-dev": "docker build -t aurora-apr-api-dev -f ./Dockerfile.dev .",
+    "docker:dev": "docker run -p 4000:3000 -d -it --mount type=bind,source=\"$(pwd)\",target=/usr/src/app --name apr-api aurora-apr-api-dev && docker exec -it apr-api bash"
+  },
+  "author": "pwagner",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "ethcall": "^4.6.5",
+    "ethers": "^5.6.4",
+    "express": "^4.16.2",
+    "memory-cache": "^0.2.0",
+    "mocha": "^9.2.2",
+    "needle": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sinon": "^13.0.2",
+    "supertest": "^6.2.2"
+  }
+}

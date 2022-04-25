@@ -1,0 +1,8 @@
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install && mv /usr/src/app/node_modules /node_modules
+COPY . .
+ENV PORT 3000
+EXPOSE $PORT
+CMD [ "npm", "run", "dev" ]
